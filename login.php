@@ -9,7 +9,7 @@
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
-<body style='background-color:blue'>
+<body>
     <div class="viewport-wrapper">
         <div class="login-card">
             <div class="campus-logo">

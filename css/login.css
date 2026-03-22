@@ -5,9 +5,9 @@
 }
 
 body {
-    background-color: #31465b; /* Very light grey, almost white */
+    background-color: #31465b;
     font-family: 'Inter', sans-serif;
-    color: #1e293b; /* Dark slate text */
+    color: #1e293b;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -21,14 +21,14 @@ body {
 }
 
 .login-card {
-    background-color: #ffffff; /* Explicitly White */
+    background-color: #ffffff; 
     width: 100%;
     max-width: 420px;
     padding: 50px 40px;
     border-radius: 16px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
     text-align: center;
-    border: 1px solid #e2e8f0; /* Subtle border for definition */
+    border: 1px solid #e2e8f0; 
 }
 
 .campus-logo {
@@ -38,7 +38,7 @@ body {
 }
 
 .logo-text {
-    background-color: #2563eb; /* Strong Blue */
+    background-color: #2563eb; 
     color: #ffffff;
     font-weight: 800;
     padding: 10px 20px;

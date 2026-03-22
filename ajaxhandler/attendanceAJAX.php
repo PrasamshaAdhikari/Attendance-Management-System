@@ -19,10 +19,13 @@ header('Content-Type: application/json');
 
 try {
     if($action == "get_subjects") {
-        $year = (int)$_POST['year'];
+        $year = (int)$_POST['year'];        //type-casting
         $stmt = $conn->prepare("SELECT id, course_name FROM course_details WHERE department = ? AND year = ? ORDER BY course_name ASC");
         $stmt->execute([$dept, $year]);
         echo json_encode($stmt->fetchAll(PDO::FETCH_ASSOC));
+        // fetchAll gets every matching element in Array
+        // json_encode changes it to json format
+        // echo prints the json back to browser so that the success function can catch it ( in js )
     }
 
     else if($action == "get_students") {

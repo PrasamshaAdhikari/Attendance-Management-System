@@ -1,21 +1,21 @@
 $(document).ready(function() {
     
     // 1. Load Subjects when Year changes
-    $("#year_select").change(function() {
+    $("#year_select").change(function() {   // change func waits for the user to selcect year from dropdown
         let yr = $(this).val();
-        if(!yr) return;
+        if(!yr) return; //if year is empty , donot do anything
         $.ajax({
-            url: "ajaxhandler/attendanceAjax.php",
+            url: "ajaxhandler/attendanceAjax.php",  //destination, where to send the data to talk to db
             type: "POST",
-            data: { action: "get_subjects", year: yr },
+            data: { action: "get_subjects", year: yr }, //actual payload send to destination , it tells to run the get_subjects and provides the year to look on
             dataType: "json",
-            success: function(data) {
-                let html = '<option value="">Select Subject</option>';
+            success: function(data) {       //call back from the payload
+                let html = '<option value="">Select Subject</option>';  //now it looks for all the subjects in the db and select which are needed
                 data.forEach(sub => { 
                     html += `<option value="${sub.id}">${sub.course_name}</option>`; 
                 });
-                $("#subject_select").html(html);
-                $("#student_list_area").hide(); // Hide list if year/subject changes
+                $("#subject_select").html(html);    //this is the DOM Update to update html(subject dropdown), without refreshing page
+                $("#student_list_area").hide(); // hide list if year/subject changes until view btn is pressed
             }
         });
     });
