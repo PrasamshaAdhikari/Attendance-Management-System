@@ -19,14 +19,21 @@ $dept = $_SESSION['teacher_dept'];
     </div>
 
     <div class="nav-bar">
-        <div class="nav-logo">IOE Attendance Portal</div>
-        <div class="nav-user">
-            <a href="report.php" class="nav-link-btn" style="background: #4f46e5; padding: 8px 15px; border-radius: 6px; color: white; text-decoration: none; margin-right: 15px; font-size: 0.85rem;"> 📊 View Reports</a>
-            <button id="open_add_modal" class="btn-primary" style="background: #0ea5e9; padding: 8px 15px; border-radius: 6px; color: white; text-decoration: none; margin-right: 15px; font-size: 0.85rem;">+ Add Student</button>
-            <span>Welcome, <strong><?php echo $teacher_name . " (" . $dept . ")"; ?></strong></span>
-            <a href="logout.php" class="logout-link">Logout</a>
+    <div class="nav-logo">IOE Attendance Portal</div>
+
+    <div class="nav-user">
+        <!-- Buttons grouped in a subtle box -->
+        <div class="nav-buttons-box">
+            <a href="report.php" class="btn-primary">📊 View Reports</a>
+            <button id="open_add_modal" class="btn-primary">+ Add Student</button>
+            <a href="logout.php" class="red-btn">Logout</a>
         </div>
+
+        <span class="nav-welcome">
+            Welcome, <strong><?php echo $teacher_name . " (" . $dept . ")"; ?></strong>
+        </span>
     </div>
+</div>
 
     <div class="main-content">
         <div class="card filter-section">

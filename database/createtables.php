@@ -55,6 +55,9 @@ try {
     $stmt = $conn->prepare("INSERT INTO teacher_details (name, user_name, password, department) VALUES (?, ?, ?, ?)");
     $stmt->execute(['Ram Chandra Bhatta', 'rcb', '123', 'BCT']);
     $stmt->execute(['Civil Dept Head', 'civil_hod', '123', 'BCE']);
+    $stmt->execute(['Mechanical Dept Head', 'mech_hod', '123', 'BME']);
+    $stmt->execute(['Agriculture Dept Head', 'agri_hod', '123', 'BAG']);
+    $stmt->execute(['Electrical Dept Head', 'elec_hod', '123', 'BEL']);
 
     $stmt = $conn->prepare("INSERT INTO course_details (course_name, department, year) VALUES (?, ?, ?)");
 
@@ -81,7 +84,34 @@ $courses = [
     ['Structural Analysis', 'BCE', 3],
     ['Hydrology', 'BCE', 3],
     ['Foundation Engineering', 'BCE', 4],
-    ['Earthquake Engineering', 'BCE', 4]
+    ['Earthquake Engineering', 'BCE', 4],
+
+    // --- BME (Mechanical Engineering) ---
+    ['Engineering Mechanics', 'BME', 1],
+    ['Thermodynamics', 'BME', 2],
+    ['Fluid Mechanics', 'BME', 2],
+    ['Machine Design', 'BME', 3],
+    ['Manufacturing Processes', 'BME', 3],
+    ['Heat Transfer', 'BME', 4],
+    ['Dynamics of Machines', 'BME', 4],
+
+    // --- BAG (Agriculture) ---
+    ['Agronomy I', 'BAG', 1],
+    ['Soil Science', 'BAG', 2],
+    ['Plant Physiology', 'BAG', 2],
+    ['Crop Production', 'BAG', 3],
+    ['Horticulture', 'BAG', 3],
+    ['Agricultural Economics', 'BAG', 4],
+    ['Irrigation Engineering', 'BAG', 4],
+
+    // --- BEL (Electrical Engineering) ---
+    ['Basic Electrical Engineering', 'BEL', 1],
+    ['Circuit Theory', 'BEL', 2],
+    ['Electromagnetics', 'BEL', 2],
+    ['Power Systems', 'BEL', 3],
+    ['Control Systems', 'BEL', 3],
+    ['Electrical Machines', 'BEL', 4],
+    ['Renewable Energy Systems', 'BEL', 4]
 ];
 
 foreach ($courses as $c) {
@@ -124,7 +154,28 @@ $students = [
     ['Tika Ram', '080BCE003', 'BCE', 3], ['Urmila Devi', '080BCE004', 'BCE', 3],
     ['Vicky Sah', '080BCE005', 'BCE', 3], ['Writik Yadav', '080BCE006', 'BCE', 3],
     ['Yuvraj Singh', '080BCE007', 'BCE', 3], ['Zeenat Aman', '080BCE008', 'BCE', 3],
-    ['Ankit Kushwaha', '080BCE009', 'BCE', 3], ['Bablu Kumar', '080BCE010', 'BCE', 3]
+    ['Ankit Kushwaha', '080BCE009', 'BCE', 3], ['Bablu Kumar', '080BCE010', 'BCE', 3],
+
+    // Mechanical 4th Year (Batch 079)
+    ['Anil Shrestha', '079BME001', 'BME', 4],
+    ['Bikram Koirala', '079BME002', 'BME', 4],
+    ['Chitra Lama', '079BME003', 'BME', 4],
+    ['Dinesh Shahi', '079BME004', 'BME', 4],
+    ['Esha Gurung', '079BME005', 'BME', 4],
+
+    // Agriculture 3rd Year (Batch 080)
+    ['Firoz Karki', '080BAG001', 'BAG', 3],
+    ['Gita Thapa', '080BAG002', 'BAG', 3],
+    ['Hari Rai', '080BAG003', 'BAG', 3],
+    ['Indra Sah', '080BAG004', 'BAG', 3],
+    ['Jiban Gurung', '080BAG005', 'BAG', 3],
+
+    // Electrical 2nd Year (Batch 081)
+    ['Kiran Shrestha', '081BEL001', 'BEL', 2],
+    ['Laxman Yadav', '081BEL002', 'BEL', 2],
+    ['Manisha KC', '081BEL003', 'BEL', 2],
+    ['Niraj Thapa', '081BEL004', 'BEL', 2],
+    ['Ojaswi Rai', '081BEL005', 'BEL', 2]
 ];
 
 foreach ($students as $student) {

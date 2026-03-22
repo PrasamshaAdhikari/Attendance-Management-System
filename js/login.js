@@ -1,6 +1,6 @@
 $(document).ready(function() {
     console.log("JQuery Ready. Button ID check: ", $("#loginbtn").length);
-
+// Login
     $(document).on("click", "#loginbtn", function(e) {
         e.preventDefault();
         // alert("Click Detected!"); 
@@ -31,3 +31,8 @@ $(document).ready(function() {
         }
     });
 });
+// Register
+$(document).on("click", "#registerbtn", function(e){
+    e.preventDefault();
+        window.location.href = "register.php";
+    });

@@ -31,6 +31,7 @@
                 </div>
 
                 <button id="loginbtn" class="login-button">Sign In</button>
+                <button id="registerbtn" class="register-button">Register</button>
             </div>
 
             <div class="footer-note">
