@@ -28,6 +28,10 @@
                     <label for="un">Username</label>
                     <input type="text" id="un" autocomplete="off" placeholder="Enter Username">
                 </div>
+                <div class="input-block">
+                    <label for="email">College Mail Id</label>
+                    <input type="email" id="email" placeholder="balendra@ioepc.edu.np">
+                </div>
 
                 <div class="input-block">
                     <label for="pw">Password</label>

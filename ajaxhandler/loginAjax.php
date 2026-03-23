@@ -10,12 +10,13 @@ $pw = $_POST['password'] ?? '';
 
 if (!empty($un) && !empty($pw)) {
     // We match against the 'teacher_details' table we created in createtables.php
-    $sql = "SELECT * FROM teacher_details WHERE user_name = :un AND password = :pw LIMIT 1";// limit 1: stop looking for another after first match
+    $sql = "SELECT * FROM teacher_details WHERE user_name = :un LIMIT 1";// limit 1: stop looking for another after first match
     $stmt = $conn->prepare($sql);
-    $stmt->execute(['un' => $un, 'pw' => $pw]);
+    $stmt->execute(['un' => $un]);
     $teacher = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($teacher) {
+
+    if ($teacher && password_verify($pw, $teacher['password'])) {
         // Set the sessions needed by attendance.php
         $_SESSION['teacher_id'] = $teacher['id'];
         $_SESSION['teacher_name'] = $teacher['name'];

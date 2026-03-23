@@ -15,6 +15,7 @@ try {
         id INT AUTO_INCREMENT PRIMARY KEY,
         name VARCHAR(100) NOT NULL,
         user_name VARCHAR(50) UNIQUE NOT NULL,
+        email VARCHAR(50) UNIQUE NOT NULL,
         password VARCHAR(255) NOT NULL,
         department VARCHAR(10) NOT NULL
     )");
@@ -52,12 +53,12 @@ try {
     // --- entering DATA ---
 
     // Insert Teachers (Password is '123' for both)
-    $stmt = $conn->prepare("INSERT INTO teacher_details (name, user_name, password, department) VALUES (?, ?, ?, ?)");
-    $stmt->execute(['Ram Chandra Bhatta', 'rcb', '123', 'BCT']);
-    $stmt->execute(['Civil Dept Head', 'civil_hod', '123', 'BCE']);
-    $stmt->execute(['Mechanical Dept Head', 'mech_hod', '123', 'BME']);
-    $stmt->execute(['Agriculture Dept Head', 'agri_hod', '123', 'BAG']);
-    $stmt->execute(['Electrical Dept Head', 'elec_hod', '123', 'BEL']);
+    $stmt = $conn->prepare("INSERT INTO teacher_details (name, user_name,email, password, department) VALUES (?, ?, ?,?, ?)");
+    $stmt->execute(['Ram Chandra Bhatta', 'rcb','bhattaram@ioepc.edu.np', '123', 'BCT']);
+    $stmt->execute(['Rajan Baniya', 'rbaniya','baniyarajan@ioepc.edu.np', '123', 'BCE']);
+    $stmt->execute(['Manish Khatiwada', 'mkhatiwada','khatiwadamanish@gmail.com', '123', 'BME']);
+    $stmt->execute(['Biraj Timsina', 'btimsina','timsinabiraj@ioepc.edu.np', '123', 'BAG']);
+    $stmt->execute(['Chandra Rai', 'crai','raichandra@ioepc.edu.np', '123', 'BEL']);
 
     $stmt = $conn->prepare("INSERT INTO course_details (course_name, department, year) VALUES (?, ?, ?)");
 
