@@ -58,8 +58,12 @@
         </div>
     </div>
 
+    <div id="toast" class="toast"></div>
+    <!-- this is for toast notification -->
+
     <script src="js/jquery.js"></script>
     <script>
+        // doing this in php style, as it was not been connected 
         <?php include('js/register.js'); ?>
     </script>
 </body>

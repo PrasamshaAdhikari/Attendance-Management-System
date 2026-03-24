@@ -51,14 +51,17 @@ try {
     echo "Tables created successfully.<br>";
 
     // --- entering DATA ---
+    //setting 123 as default password whose hash is $2y$10$wf2OqcnFN6MLhWvE7V44l.shFYgROjDZsUD4x0blftWcseZV1Rt6m
+    $hashedPassword='$2y$10$wf2OqcnFN6MLhWvE7V44l.shFYgROjDZsUD4x0blftWcseZV1Rt6m';
+
 
     // Insert Teachers (Password is '123' for both)
-    $stmt = $conn->prepare("INSERT INTO teacher_details (name, user_name,email, password, department) VALUES (?, ?, ?,?, ?)");
-    $stmt->execute(['Ram Chandra Bhatta', 'rcb','bhattaram@ioepc.edu.np', '123', 'BCT']);
-    $stmt->execute(['Rajan Baniya', 'rbaniya','baniyarajan@ioepc.edu.np', '123', 'BCE']);
-    $stmt->execute(['Manish Khatiwada', 'mkhatiwada','khatiwadamanish@gmail.com', '123', 'BME']);
-    $stmt->execute(['Biraj Timsina', 'btimsina','timsinabiraj@ioepc.edu.np', '123', 'BAG']);
-    $stmt->execute(['Chandra Rai', 'crai','raichandra@ioepc.edu.np', '123', 'BEL']);
+    $stmt = $conn->prepare("INSERT INTO teacher_details (name, user_name,email, password, department) VALUES (?, ?, ?, ?, ?)");
+    $stmt->execute(['Ram Chandra Bhatta', 'rcb','bhattaram@ioepc.edu.np', $hashedPassword, 'BCT']);
+    $stmt->execute(['Rajan Baniya', 'rbaniya','baniyarajan@ioepc.edu.np', $hashedPassword, 'BCE']);
+    $stmt->execute(['Manish Khatiwada', 'mkhatiwada','khatiwadamanish@gmail.com', $hashedPassword, 'BME']);
+    $stmt->execute(['Biraj Timsina', 'btimsina','timsinabiraj@ioepc.edu.np', $hashedPassword, 'BAG']);
+    $stmt->execute(['Chandra Rai', 'crai','raichandra@ioepc.edu.np', $hashedPassword, 'BEL']);
 
     $stmt = $conn->prepare("INSERT INTO course_details (course_name, department, year) VALUES (?, ?, ?)");
 

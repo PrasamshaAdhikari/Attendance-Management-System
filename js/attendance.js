@@ -21,10 +21,10 @@ $(document).ready(function() {
     });
 
     // 2. Manual Trigger: View Students
-    $("#load_students_btn").click(function() {
-        if(!$("#subject_select").val()) return alert("Please select a subject");
-        fetchList();
-    });
+        $("#load_students_btn").click(function() {
+            if(!$("#subject_select").val()) return alert("Please select a subject");
+            fetchList();
+        });
 
     // 3. Auto-refresh on Date change (only if list is already open)
     $("#attendance_date").change(function() {
