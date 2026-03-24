@@ -1,38 +1,67 @@
 $(document).ready(function() {
-    console.log("JQuery Ready. Button ID check: ", $("#loginbtn").length);
-// Login
+    // 1. Helper function to show professional toast notifications
+    function showToast(message, type = 'error') {
+        const toast = $("#toast");
+        toast.text(message);
+        
+        // Reset classes and apply the correct type (success or error)
+        toast.removeClass('success error').addClass(type);
+        
+        // Show with a slide/fade effect
+        toast.stop(true, true).fadeIn(300);
+
+        // Auto-hide after 3 seconds
+        setTimeout(() => {
+            toast.fadeOut(300);
+        }, 3000);
+    }
+
+    // 2. Handle Login Click
     $(document).on("click", "#loginbtn", function(e) {
         e.preventDefault();
-        // alert("Click Detected!"); 
 
-        let un = $("#un").val();
-        let pw = $("#pw").val();
+        let un = $("#un").val().trim();
+        let pw = $("#pw").val().trim();
 
-        if (un != "" && pw != "") {
-            $.ajax({
-                url: "ajaxhandler/loginAjax.php",
-                type: "POST",
-                data: { user_name: un, password: pw },
-                dataType: "json",
-                success: function(response) {
-                    if (response.status == "ALL OK") {
-                        window.location.replace("attendance.php");
-                    } else {
-                        alert("Invalid Username or Password");
-                    }
-                },
-                error: function(xhr) {
-                    console.log(xhr.responseText);
-                    alert("Ajax Error: Check if ajaxhandler/loginAjax.php exists.");
-                }
-            });
-        } else {
-            alert("Please enter username and password");
+        // Validation Check
+        if (un === "" || pw === "") {
+            showToast("Please enter both username and password", "error");
+            return;
         }
+
+        // Disable button to prevent multiple clicks
+        const btn = $(this);
+        btn.prop('disabled', true).text("Signing in...");
+
+        $.ajax({
+            url: "ajaxhandler/loginAjax.php",
+            type: "POST",
+            data: { user_name: un, password: pw },
+            dataType: "json",
+            success: function(response) {
+                if (response.status === "ALL OK") {
+                    showToast("Login successful! Redirecting...", "success");
+                    
+                    // Small delay so user can see the success toast
+                    setTimeout(() => {
+                        window.location.replace("attendance.php");
+                    }, 1200);
+                } else {
+                    btn.prop('disabled', false).text("Sign In");
+                    showToast("Invalid Username or Password", "error");
+                }
+            },
+            error: function(xhr) {
+                btn.prop('disabled', false).text("Sign In");
+                console.error(xhr.responseText);
+                showToast("Connection Error: Check server logs", "error");
+            }
+        });
     });
-});
-// Register
-$(document).on("click", "#registerbtn", function(e){
-    e.preventDefault();
+
+    // 3. Handle Register Button
+    $(document).on("click", "#registerbtn", function(e) {
+        e.preventDefault();
         window.location.href = "register.php";
     });
+});

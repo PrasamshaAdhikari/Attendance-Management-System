@@ -40,6 +40,7 @@
         </div>
     </div>
 
+    <div id="toast" class="toast"></div>    <!--for the error message -->
     <script src="js/jquery.js"></script>
     <script>
         <?php include('js/login.js'); ?>

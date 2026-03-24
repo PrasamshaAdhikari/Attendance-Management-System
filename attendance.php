@@ -119,7 +119,8 @@ $dept = $_SESSION['teacher_dept'];
         </form>
     </div>
 </div>
+    
     <script src="js/jquery.js"></script>
-    <script src="js/attendance.js"></script>
+    <script src="js/attendance.js?v=2"></script>
 </body>
 </html>
